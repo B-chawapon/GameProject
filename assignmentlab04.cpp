@@ -1,0 +1,114 @@
+#include<stdio.h>
+#include<Windows.h>
+#include<conio.h>
+void draw_ship(int x,int y);
+void gotoxy(int x, int y);
+void erase_ship(int x, int y);
+void map();
+char ch = ' ';
+int posx=40, posy=10;
+int main()
+{
+	map();
+	draw_ship(posx, posy);
+	do 
+	{
+		if (_kbhit())
+		{
+			ch = _getch();
+			if (ch =='a')
+			{
+				if (posx == 1)
+				{
+					draw_ship(posx, posy);
+				}
+				else
+				{
+					draw_ship(--posx, posy);
+				}
+			}
+			if (ch == 'd')
+			{
+				if (posx == 80)
+				{
+					draw_ship(posx, posy);
+				}
+				else
+				{
+					draw_ship(++posx, posy);
+				}
+			}
+			if (ch == 'w')
+			{
+				if (posy <=1)
+				{
+					erase_ship(posx, posy);
+					draw_ship(posx, posy);
+				}
+				else
+				{
+					erase_ship(posx, posy);
+					draw_ship(posx,--posy);
+					
+				}
+			}
+			if (ch == 's')
+			{
+				if (posy == 20)
+				{
+					erase_ship(posx, posy);
+					draw_ship(posx, posy);
+				}
+				else
+				{
+					erase_ship(posx, posy);
+					draw_ship(posx, ++posy);
+				}
+			}
+			fflush(stdin);
+		}
+		Sleep(0.1);
+	} while (ch != 'x');
+	return 0;
+}
+void gotoxy(int x, int y)
+{
+	COORD c = { x, y };
+	SetConsoleCursorPosition(
+		GetStdHandle(STD_OUTPUT_HANDLE), c);
+}
+void draw_ship(int x,int y)
+{
+	gotoxy(x, y);
+	printf(" <-0-> ");
+}
+void erase_ship(int x, int y)
+{
+	gotoxy(x, y);
+	printf("       ");
+}
+void map()
+{
+	for (int i = 0; i <= 21; i++)
+	{
+		for (int j = 0; j <= 87; j++)
+		{
+			if (i == 0 || i == 21)
+			{
+				printf("*");
+			}
+			else
+			{
+				if (j == 0 || j == 87)
+				{
+					printf("*");
+				}
+				else
+				{
+					printf(" ");
+				}
+			}
+		}
+		printf("\n");
+	}
+}

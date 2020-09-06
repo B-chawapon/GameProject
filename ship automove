@@ -2,26 +2,27 @@
 #include<windows.h>
 #include<conio.h>
 #include<math.h>
-void draw_ship(int x,int y);
+void draw_ship(int x, int y);
 void gotoxy(int x, int y);
 void erase_ship(int x, int y);
 void setcursor(bool visible);
-void setcolor(int fg,int bg);
+void setcolor(int fg, int bg);
 void map();
 char ch = ' ';
-int posx=38, posy=20;
-int changex=0;
+int posx = 38, posy = 20;
+int changex = 0;
+bool stop=1;
 int main()
 {
-	//map();
+	map();
 	setcursor(0);
 	draw_ship(posx, posy);
-	do 
+	do
 	{
 		if (_kbhit())
 		{
 			ch = _getch();
-			if (ch =='a')
+			if (ch == 'a')
 			{
 				if (posx == 0)
 				{
@@ -31,7 +32,7 @@ int main()
 				else
 				{
 					//erase_ship(posx, posy);
-					changex=abs(posx-1);
+					changex = abs(posx - 1);
 					//draw_ship(--posx, posy);
 				}
 			}
@@ -45,45 +46,59 @@ int main()
 				else
 				{
 					//erase_ship(posx, posy);
-					changex=abs(posx+1);
+					changex = abs(posx + 1);
 					//draw_ship(++posx, posy);
 				}
 			}
-			if(ch=='s')
+			if (ch == 's')
 			{
-				draw_ship(posx, posy);
-			}
-		fflush(stdin);
-		}
-		if(ch=='a')
-		{	
-			if(changex<posx)
-			{
-			for(posx=posx;changex>=0;--posx)
-			{
-				erase_ship(posx, posy);
-				draw_ship(changex,posy);
-				--changex;
-				Sleep(100);
-			}
+				stop = 0;
 			}
 		}
-		if(ch=='d')
-		{	
-			if(changex>posx)
+		if (ch == 'a')
+		{
+			if (changex < posx)
 			{
-			for(posx=posx;changex<=80;++posx)
-			{
-				erase_ship(posx, posy);
-				draw_ship(changex,posy);
-				++changex;
-				Sleep(100);
-			}
+				for (posx = posx; changex >= 1; --posx, --changex)
+				{
+					if (_kbhit())
+					{
+						ch = _getch();
+						if (ch=='s')
+						{
+							break;
+						}
+					}
+					fflush(stdin);
+					erase_ship(posx, posy);
+					draw_ship(changex, posy);
+					Sleep(10);
+				}
 			}
 		}
-		
-		
-		fflush(stdin);
+		if (ch == 'd')
+		{
+			if (changex > posx)
+			{
+					for (posx = posx; changex <= 80; ++posx, ++changex)
+					{
+						if (_kbhit())
+						{
+							ch = _getch();
+							if (ch=='s')
+							{
+								break;
+							}
+						}
+						erase_ship(posx, posy);
+						draw_ship(changex, posy);
+						Sleep(10);
+					}
+			}
+		}
+
+
+	fflush(stdin);
 	} while (ch != 'x');
 
 	return 0;
@@ -94,16 +109,16 @@ void gotoxy(int x, int y)
 	SetConsoleCursorPosition(
 		GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
-void draw_ship(int x,int y)
+void draw_ship(int x, int y)
 {
 	gotoxy(x, y);
-	setcolor (2,4);
+	setcolor(2, 4);
 	printf("<-0->");
 }
 void erase_ship(int x, int y)
 {
 	gotoxy(x, y);
-	setcolor (2,0);
+	setcolor(2, 0);
 	printf("     ");
 }
 void setcursor(bool visible)
@@ -112,18 +127,18 @@ void setcursor(bool visible)
 	CONSOLE_CURSOR_INFO lpCursor;
 	lpCursor.bVisible = visible;
 	lpCursor.dwSize = 20;
-	SetConsoleCursorInfo(console,&lpCursor);
+	SetConsoleCursorInfo(console, &lpCursor);
 }
-void setcolor(int fg,int bg)
+void setcolor(int fg, int bg)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, bg*16+fg);
+	SetConsoleTextAttribute(hConsole, bg * 16 + fg);
 }
 void map()
 {
 	for (int i = 0; i <= 21; i++)
 	{
-		for (int j = 0; j <= 87; j++)
+		for (int j = 0; j <= 86; j++)
 		{
 			if (i == 0 || i == 21)
 			{
@@ -131,7 +146,7 @@ void map()
 			}
 			else
 			{
-				if (j == 0 || j == 87)
+				if (j == 0 || j == 86)
 				{
 					printf("*");
 				}

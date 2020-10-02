@@ -40,7 +40,8 @@ int main()
 			window.close();
 		}
 		sf::Event cat;
-		while (window.pollEvent(cat)) {
+		while (window.pollEvent(cat)) 
+{
 			if (cat.type == cat.Closed) {
 				window.close();
 			}

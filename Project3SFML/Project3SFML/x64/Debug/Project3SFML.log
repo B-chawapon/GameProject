@@ -1,1 +1,7 @@
-﻿  Project3SFML.vcxproj -> C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\x64\Debug\Project3SFML.exe
+﻿  texture.cpp
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(16,32): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+  Project3SFML.vcxproj -> C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\x64\Debug\Project3SFML.exe

@@ -1,0 +1,5 @@
+﻿  lab03.cpp
+C:\Users\Chawapon\source\repos\nutt07\lab03\lab03\lab03.cpp(13,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Chawapon\source\repos\nutt07\lab03\lab03\lab03.cpp(34,14): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Chawapon\source\repos\nutt07\lab03\lab03\lab03.cpp(34,17): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+  lab03.vcxproj -> C:\Users\Chawapon\source\repos\nutt07\lab03\Debug\lab03.exe

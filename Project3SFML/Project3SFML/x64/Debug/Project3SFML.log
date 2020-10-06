@@ -1,5 +1,5 @@
 ﻿  texture.cpp
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(13,48): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(15,48): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -8,7 +8,7 @@ C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\text
           [
               T=float
           ]
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(13,39): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(15,39): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -17,27 +17,22 @@ C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\text
           [
               T=float
           ]
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(15,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(17,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(15,32): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(17,34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(32,32): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(98,27): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(72,25): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(79,26): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(106,28): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float

@@ -7,11 +7,16 @@ int main()
 	sf::Vector2f screen(1080, 720);
 	sf::RenderWindow window(sf::VideoMode(screen.x, screen.y), "GAME", sf::Style::Close);
 	sf::RectangleShape wizard(sf::Vector2f(35.0f, 52.0f));
+	sf::RectangleShape chocobohitbox(sf::Vector2f(30.0f, 29.8f));
 	sf::Texture texturebg;
 	sf::Texture playerTexture;
-
+	sf::Texture chocobo;
+	
+	sf::Clock clock;
+	float dt;
 	texturebg.loadFromFile("starbg.png");
 	playerTexture.loadFromFile("blackmage.png");
+	chocobo.loadFromFile("chocobo.png");
 
 	sf::Sprite sptexturebg;
 	sptexturebg.setTexture(texturebg);
@@ -31,6 +36,16 @@ int main()
 	int animationx = 0;
 	int animationy = 0;
 
+	sf::Sprite chocobosp;
+	chocobosp.setTexture(chocobo);
+	int spritechocoboSizeX =chocobo.getSize().x / 10;
+	int spritechocoboSizeY = chocobo.getSize().y / 10;
+	chocobosp.setTextureRect(sf::IntRect(0, 261, spritechocoboSizeX, spritechocoboSizeY));
+	chocobosp.setScale({ 1.8f, 1.8f });
+	chocobosp.setPosition(screen.x, screen.y);
+	int animationchocobox = 0;
+	
+
 	sf::View view;
 	view.reset(sf::FloatRect(0, 0, screen.x, screen.y));
 	view.setViewport(sf::FloatRect(0, 0, 1.f, 1.f));
@@ -39,10 +54,11 @@ int main()
 
 	while (window.isOpen())
 	{
+		dt = clock.restart().asMicroseconds();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
-			wizardsp.move(0.f, -.2f);
+			wizardsp.move(0.f, -0.2f);
 			wizardsp.setTextureRect(sf::IntRect(spriteSizeX * animationx, spriteSizeY * animationy, spriteSizeX, spriteSizeY));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
@@ -74,6 +90,7 @@ int main()
 		{
 			window.close();
 		}
+		
 		animationx++;
 		if (animationx >= 5) {
 			temp++;
@@ -86,15 +103,16 @@ int main()
 			}
 
 		}
-
-		sf::Event windowEvent;
-		while (window.pollEvent(windowEvent))
+		
+		animationchocobox++;
+		if (animationchocobox >= 10)
 		{
-			if (windowEvent.type == sf::Event::Closed) {
-				window.close();
-			}
-
+			animationchocobox = 0;
 		}
+		chocobosp.setTextureRect(sf::IntRect(spritechocoboSizeX * animationchocobox, 238.4,30, 29.8));
+		
+
+		
 
 		if (wizardsp.getPosition().x +10> screen.x/2) {
 			positionview.x = wizardsp.getPosition().x + 10;
@@ -110,15 +128,25 @@ int main()
 		else {
 			positionview.y = screen.y / 2;
 		}
+		sf::Event windowEvent;
+		while (window.pollEvent(windowEvent))
+		{
+			if (windowEvent.type == sf::Event::Closed) {
+				window.close();
+			}
+
+		}
 		
 		view.setCenter(positionview);
 		window.setView(view);
 		window.draw(sptexturebg);
 		window.draw(wizardsp);
-
+		window.draw(chocobosp);
+	
 
 		window.display();
 		window.clear();
 	}
+
 	return 0;
 }

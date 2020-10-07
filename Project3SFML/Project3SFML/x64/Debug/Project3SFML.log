@@ -1,14 +1,14 @@
-﻿  texture.cpp
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(8,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+﻿  main.cpp
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\main.cpp(8,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(8,46): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\main.cpp(8,46): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(29,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\texture.cpp(29,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\main.cpp(29,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\Project3SFML\main.cpp(29,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Project3SFML.vcxproj -> C:\Users\Chawapon\source\repos\nutt07\GameProject\Project3SFML\x64\Debug\Project3SFML.exe
